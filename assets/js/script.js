@@ -18,7 +18,7 @@ $(document).ready(function () {
         var timeNow = moment().hour();
 
         //loop time blocks
-        $(".time-block").each(function () {
+        $("div[id*='block']").each(function () {
             var blockTime = parseInt($(this).attr("id").split("hour")[1]);
 
             //check time add classes
