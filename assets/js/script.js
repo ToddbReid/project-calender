@@ -3,25 +3,24 @@ var todayDate = moment().format('dddd, MMM Do YYYY');
 $("#currentDay").html(todayDate);
 
 $(document).ready(function () {
-    //btn listener
+    //button listener
     $(".saveBtn").on("click", function () {
         var text = $(this).siblings(".description").val();
         var time = $(this).parent().attr("id");
 
-
-        //save local storage
+        //save to the local storage
         localStorage.setItem(time, text);
     })
-    
+
     function timeTracker() {
         //current hours
         var timeNow = moment().hour();
 
-        //loop time blocks
+        //loop the time blocks
         $("div[id*='block']").each(function () {
             var blockTime = parseInt($(this).find("div").data("id"))
 
-            //check time add classes
+            //check what the time is then add classes
             if (blockTime < timeNow) {
                 $(this).removeClass("future");
                 $(this).removeClass("present");
@@ -36,12 +35,11 @@ $(document).ready(function () {
                 $(this).removeClass("present");
                 $(this).removeClass("past");
                 $(this).addClass("future");
-
             };
         });
     };
 
-    // Get item from local storage
+    //Grab from local storage
     $("#block1 .description").val(localStorage.getItem("block1"));
     $("#block2 .description").val(localStorage.getItem("block2"));
     $("#block3 .description").val(localStorage.getItem("block3"));
