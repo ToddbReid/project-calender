@@ -19,7 +19,7 @@ $(document).ready(function () {
 
         //loop time blocks
         $("div[id*='block']").each(function () {
-            var blockTime = parseInt($(this).attr("id").split("hour")[1]);
+            var blockTime = parseInt($(this).find("div").data("id"))
 
             //check time add classes
             if (blockTime < timeNow) {
