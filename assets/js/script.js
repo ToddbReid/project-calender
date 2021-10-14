@@ -1,12 +1,12 @@
 //today's date
-var todayDate = moment().format('dddd, MMM Do YYYY');
+let todayDate = moment().format('dddd, MMM Do YYYY');
 $("#currentDay").html(todayDate);
 
 $(document).ready(function () {
     //button listener
     $(".saveBtn").on("click", function () {
-        var text = $(this).siblings(".description").val();
-        var time = $(this).parent().attr("id");
+        let text = $(this).siblings(".description").val();
+        let time = $(this).parent().attr("id");
 
         //save to the local storage
         localStorage.setItem(time, text);
@@ -14,11 +14,11 @@ $(document).ready(function () {
 
     function timeTracker() {
         //current hours
-        var timeNow = moment().hour();
+        let timeNow = moment().hour();
 
         //loop the time blocks
         $("div[id*='block']").each(function () {
-            var blockTime = parseInt($(this).find("div").data("id"))
+            let blockTime = parseInt($(this).find("div").data("id"))
 
             //check what the time is then add classes
             if (blockTime < timeNow) {
